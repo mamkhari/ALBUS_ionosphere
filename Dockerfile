@@ -30,6 +30,7 @@ RUN docker-apt-install build-essential\
                        unzip \
                        python3-nose \
                        python3-requests
+RUN docker-apt-install python3-setuptools
 
 RUN update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-$GNUCOMPILER 100 && \
     update-alternatives --install /usr/bin/cc cc /usr/bin/gcc-$GNUCOMPILER 100 && \
@@ -78,7 +79,6 @@ ADD iri.update $ALBUSPATH
 ADD kill_python $ALBUSPATH
 ADD LICENSE $ALBUSPATH
 ADD README.md $ALBUSPATH
-ADD remove_remainder $ALBUSPATH
 ADD test_iri.f $ALBUSPATH
 ADD UPDATING_SPACE_WEATHER $ALBUSPATH
 ADD bin $ALBUSPATH/bin
